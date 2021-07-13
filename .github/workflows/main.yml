@@ -5,7 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install and Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14.0
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
       - id: foo
         uses: ./.github/actions/terraform-workflow # actions/hello-world-composite-run-steps-action@v1
         with:
