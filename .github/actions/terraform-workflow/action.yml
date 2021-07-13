@@ -5,7 +5,7 @@ inputs:
     description: 'Working directory for this action'
     required: false
     default: '.'
-  who-to-greet:  # id of input
+  who-to-greet:  # ID of input
     description: 'Who to greet'
     required: true
     default: 'World'
