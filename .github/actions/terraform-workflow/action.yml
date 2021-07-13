@@ -1,6 +1,10 @@
-name: 'Hello World'
+name: 'terraform-plan-approve-apply' # 'Hello World'
 description: 'Greet someone'
 inputs:
+  working-directory:
+    description: 'Working directory for this action'
+    required: false
+    default: '.'
   who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
@@ -12,10 +16,17 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ inputs.who-to-greet }}.
+    - run: echo Hello ${{ inputs.who-to-greet }}. ${{ inputs.working-directory }}
       shell: bash
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
     - run: ${{ github.action_path }}/goodbye.sh
       shell: bash
+#    - name: Checkout repository
+#      uses: actions/checkout@v2
+#    - name: Install and Setup Terraform
+#      uses: hashicorp/setup-terraform@v1
+#      with:
+#        terraform_version: 0.14.0
+#        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}

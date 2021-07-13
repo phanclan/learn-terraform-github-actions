@@ -7,8 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: foo
-        uses: ./.github/actions/terraform-workflow #actions/hello-world-composite-run-steps-action@v1
+        uses: ./.github/actions/terraform-workflow # actions/hello-world-composite-run-steps-action@v1
         with:
+          working-directory: 'gateway/.cloud/terraform/10_ecr'
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash

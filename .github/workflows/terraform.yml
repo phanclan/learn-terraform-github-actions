@@ -9,6 +9,9 @@ on:
 jobs:
   terraform:
     name: "Terraform"
+    defaults:
+      run:
+        working-directory:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
