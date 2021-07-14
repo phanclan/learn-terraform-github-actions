@@ -15,7 +15,7 @@ jobs:
       - id: foo
         uses: ./.github/actions/terraform-workflow # actions/hello-world-composite-run-steps-action@v1
         with:
-          working-directory: 'gateway/.cloud/terraform/10_ecr'
+          working-directory: 'test-workspace-triggers'
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
