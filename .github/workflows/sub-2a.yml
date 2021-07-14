@@ -2,6 +2,7 @@ on:
   push:
     paths:
       - 'test-workspace-triggers/sub-1/sub-2a/*'
+
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
