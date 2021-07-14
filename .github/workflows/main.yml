@@ -1,4 +1,7 @@
 on: [push]
+  push:
+    paths:
+      - test-workspace-triggers/sub-1
 
 jobs:
   hello_world_job:
@@ -15,7 +18,7 @@ jobs:
       - id: foo
         uses: ./.github/actions/terraform-workflow # actions/hello-world-composite-run-steps-action@v1
         with:
-          working-directory: 'test-workspace-triggers'
+          working-directory: 'test-workspace-triggers/sub-1'
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
