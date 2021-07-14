@@ -23,3 +23,7 @@ runs:
       shell: bash
     - run: ${{ github.action_path }}/goodbye.sh
       shell: bash
+    - name: Terraform Format
+      id: fmt
+      run: terraform fmt -check
+      working-directory: ${{ inputs.working-directory }}
