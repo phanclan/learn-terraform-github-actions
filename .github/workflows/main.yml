@@ -1,7 +1,7 @@
-on: [push]
+on:
   push:
     paths:
-      - test-workspace-triggers/sub-1
+      - 'test-workspace-triggers/sub-1'
 
 jobs:
   hello_world_job:
