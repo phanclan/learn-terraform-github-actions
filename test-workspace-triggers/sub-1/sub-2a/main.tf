@@ -14,7 +14,3 @@ variable "prefix" {
 output "server" {
   value = random_pet.server.id
 }
-
-output "workspace" {
-  value = "sub-2a "
-}
