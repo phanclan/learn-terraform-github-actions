@@ -22,3 +22,10 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
+      - name: Terraform Plan
+        id: plan
+        if: github.event_name == 'pull_request'
+        run: terraform plan -no-color -input=false
+        shell: bash
+        working-directory: 'test-workspace-triggers/sub-1'
+        continue-on-error: true
