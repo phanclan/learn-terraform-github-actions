@@ -63,3 +63,4 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
+        working-directory: 'test-workspace-triggers/sub-1/sub-2a'
